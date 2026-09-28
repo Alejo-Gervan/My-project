@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
-    
+
+
+    public Rigidbody rb;
     public float Velocidad = 2;
     public float gravedad = -9.81f;
     public Vector3 startPosition;
@@ -19,8 +21,9 @@ public class Jugador : MonoBehaviour
     void Update()
     {
         // MovimientoBasicoSinColision();
-        MovimientoBasicoConColision();
-        if (Control.isGrounded == false) {Control.Move(new Vector3 (0, gravedad , 0) * Time.deltaTime);  }
+        //MovimientoBasicoConColision();
+        MovimientoBasicoConFuerza();
+        if (Control.isGrounded == false) { rb.AddForce(0, -9, 0);  }
         
     }
 
@@ -38,6 +41,14 @@ public class Jugador : MonoBehaviour
         if (Input.GetKey(KeyCode.S)) { Control.Move(new Vector3(-1, 0, 0) * Time.deltaTime * Velocidad); }
         if (Input.GetKey(KeyCode.A)) { Control.Move(new Vector3(0, 0, 1) * Time.deltaTime * Velocidad); }
         if (Input.GetKey(KeyCode.D)) { Control.Move(new Vector3(0, 0, -1) * Time.deltaTime * Velocidad); }
+    }
+
+    private void MovimientoBasicoConFuerza() //
+    {
+        if (Input.GetKey(KeyCode.W)) { rb.AddForce(50, 0, 0) ; }
+        if (Input.GetKey(KeyCode.S)) { rb.AddForce(-50, 0, 0); }
+        if (Input.GetKey(KeyCode.A)) { rb.AddForce(1, 0, 50); }
+        if (Input.GetKey(KeyCode.D)) { rb.AddForce(1, 0, -50); }
     }
 
 
