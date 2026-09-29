@@ -45,10 +45,10 @@ public class Jugador : MonoBehaviour
 
     private void MovimientoBasicoConFuerza() //
     {
-        if (Input.GetKey(KeyCode.W)) { rb.AddForce(50, 0, 0) ; }
-        if (Input.GetKey(KeyCode.S)) { rb.AddForce(-50, 0, 0); }
-        if (Input.GetKey(KeyCode.A)) { rb.AddForce(1, 0, 50); }
-        if (Input.GetKey(KeyCode.D)) { rb.AddForce(1, 0, -50); }
+        if (Input.GetKey(KeyCode.W)) { rb.AddForce(Velocidad, 0, 0) ; }
+        if (Input.GetKey(KeyCode.S)) { rb.AddForce(-Velocidad, 0, 0); }
+        if (Input.GetKey(KeyCode.A)) { rb.AddForce(0, 0, Velocidad); }
+        if (Input.GetKey(KeyCode.D)) { rb.AddForce(0, 0, -Velocidad); }
     }
 
 
