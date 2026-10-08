@@ -3,6 +3,7 @@ using UnityEngine;
 public class FisicasJugador : MonoBehaviour
 {
     public Rigidbody rb;
+    public int saltomelosos = 7;
     bool saltoPuedo = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,7 +20,7 @@ public class FisicasJugador : MonoBehaviour
 
     private void Salto()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && saltoPuedo) { rb.AddForce(0, 500, 0); saltoPuedo = false; }
+        if (Input.GetKeyDown(KeyCode.Space) && saltoPuedo) { rb.AddForce(0, saltomelosos, 0); saltoPuedo = false; }
     }
 
     private void OnCollisionEnter(Collision collision)

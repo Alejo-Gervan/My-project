@@ -14,7 +14,7 @@ public class Jugador : MonoBehaviour
     void Start()
     {
         Debug.Log("Arrancamos");
-        transform.position = startPosition;
+        //transform.position = startPosition;
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class Jugador : MonoBehaviour
         // MovimientoBasicoSinColision();
         //MovimientoBasicoConColision();
         MovimientoBasicoConFuerza();
-        if (Control.isGrounded == false) { rb.AddForce(0, -9, 0);  }
+        if (Control.isGrounded == false) { rb.AddForce(0, gravedad, 0);  }
         
     }
 
