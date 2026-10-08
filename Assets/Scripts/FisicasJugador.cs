@@ -20,13 +20,18 @@ public class FisicasJugador : MonoBehaviour
 
     private void Salto()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && saltoPuedo) { rb.AddForce(0, saltomelosos, 0); saltoPuedo = false; }
+        if (Input.GetKeyDown(KeyCode.Space) && saltoPuedo ) { rb.AddForce(0, saltomelosos, 0); saltoPuedo = false; }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.tag == "Piso") { saltoPuedo = true; }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "ParedEscalable") { saltoPuedo = true; }
+    }
 
 }

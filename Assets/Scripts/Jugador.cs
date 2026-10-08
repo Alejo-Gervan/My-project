@@ -1,13 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Jugador : MonoBehaviour
 {
-
-
+    //int todosItems = GameObject.FindGameObjectsWithTag("item").Length;
+    public TextMeshProUGUI contador;
+    public int ItemAgarro = 0;
     public Rigidbody rb;
     public float Velocidad = 2;
     public float gravedad = -9.81f;
-    public Vector3 startPosition;
+    public Vector3 startPosition;  
     public CharacterController Control;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,8 +26,8 @@ public class Jugador : MonoBehaviour
         // MovimientoBasicoSinColision();
         //MovimientoBasicoConColision();
         MovimientoBasicoConFuerza();
-        if (Control.isGrounded == false) { rb.AddForce(0, gravedad, 0);  }
-        
+        if (Control.isGrounded == false) { rb.AddForce(0, gravedad, 0); }
+
     }
 
     private void MovimientoBasicoSinColision() //Al modificar el componente transform, el obejeta va a ese nuevo vector ignorando si ya hay otro objeto ahi, osea, ignora las colisiones
@@ -45,12 +48,16 @@ public class Jugador : MonoBehaviour
 
     private void MovimientoBasicoConFuerza() //
     {
-        if (Input.GetKey(KeyCode.W)) { rb.AddForce(Velocidad, 0, 0) ; }
+        if (Input.GetKey(KeyCode.W)) { rb.AddForce(Velocidad, 0, 0); }
         if (Input.GetKey(KeyCode.S)) { rb.AddForce(-Velocidad, 0, 0); }
         if (Input.GetKey(KeyCode.A)) { rb.AddForce(0, 0, Velocidad); }
         if (Input.GetKey(KeyCode.D)) { rb.AddForce(0, 0, -Velocidad); }
     }
 
-
+    public void Agarrador() 
+    {
+        ItemAgarro += 10;
+        contador.text = "Tenes " + ItemAgarro + " Kekes";
+    }
 
 }
