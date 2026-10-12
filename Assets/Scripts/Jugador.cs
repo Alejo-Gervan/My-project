@@ -4,9 +4,9 @@ using TMPro;
 
 public class Jugador : MonoBehaviour
 {
-    //int todosItems = GameObject.FindGameObjectsWithTag("item").Length;
-    public TextMeshProUGUI contador;
-    public int ItemAgarro = 0;
+ 
+
+   
     public Rigidbody rb;
     public float Velocidad = 2;
     public float gravedad = -9.81f;
@@ -18,6 +18,7 @@ public class Jugador : MonoBehaviour
     {
         Debug.Log("Arrancamos");
         //transform.position = startPosition;
+        
     }
 
     // Update is called once per frame
@@ -54,10 +55,5 @@ public class Jugador : MonoBehaviour
         if (Input.GetKey(KeyCode.D)) { rb.AddForce(0, 0, -Velocidad); }
     }
 
-    public void Agarrador() 
-    {
-        ItemAgarro += 10;
-        contador.text = "Tenes " + ItemAgarro + " Kekes";
-    }
 
 }

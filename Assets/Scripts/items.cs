@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class items : MonoBehaviour
 {
-    public Jugador player;
+    public JuagdorItems player;
+    [SerializeField] private AudioClip ItemSound;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -18,10 +20,14 @@ public class items : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        AudioSource.PlayClipAtPoint(ItemSound, transform.position);
         if (other.CompareTag("Player")) { Destroy(gameObject);}
-        player = other.GetComponent<Jugador>();
+        player = other.GetComponent<JuagdorItems>();    
         player.Agarrador();
 
     }
+
+
+
 
 }

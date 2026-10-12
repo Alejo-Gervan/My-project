@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::items
   player: {fileID: 0}
+  ItemSound: {fileID: 8300000, guid: 71ec153bf5401cb40927b5c6b100ee8b, type: 3}
