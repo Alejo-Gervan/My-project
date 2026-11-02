@@ -8,6 +8,9 @@ TagManager:
   - item
   - ParedEscalable
   - gen
+  - CinemachineTarget
+  - Projectil
+  - Enemy
   layers:
   - Default
   - TransparentFX
